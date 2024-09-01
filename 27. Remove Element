@@ -1,0 +1,32 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int counter = 0;
+        
+        for (int i=0;i<nums.length;i++){
+            if (nums[i] == val){
+                counter++;
+            }
+        }
+        
+        int iIndex = 0;
+        int jIndex = nums.length - 1;
+
+        if (counter == nums.length){
+            return 0;
+        } else {
+            while (iIndex < jIndex){
+                if (nums[iIndex] == val){
+                    while (nums[jIndex] == val && iIndex < jIndex){
+                        jIndex--;
+                    }
+                    int temp = nums[iIndex];
+                    nums[iIndex] = nums[jIndex];
+                    nums[jIndex] = temp;
+                    jIndex--;
+                }
+                iIndex++;
+            }
+            return (nums.length - counter);
+        }
+    }
+}
