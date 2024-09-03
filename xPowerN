@@ -1,0 +1,28 @@
+package Recursion;
+
+public class xPowerN {
+    public static int powerFunc(int base, int power) {
+        // Base case: any number to the power of 0 is 1
+        if (power == 0) {
+            return 1;
+        }
+        // Base case: any number to the power of 1 is the number itself
+        if (power == 1) {
+            return base;
+        }
+        // If power is even
+        if (power % 2 == 0) {
+            int halfPower = powerFunc(base, power / 2);
+            return halfPower * halfPower;
+        } else {
+            // If power is odd
+            return base * powerFunc(base, power - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        int base = 2;
+        int power = 3;
+        System.out.println(powerFunc(base, power));
+    }
+}
