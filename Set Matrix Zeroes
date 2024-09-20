@@ -1,0 +1,36 @@
+class Solution {
+    public void betterSolution(int[][] matrix, int row, int column){
+        int[] rowMarking = new int[row];
+        int[] columnMarking = new int[column];
+
+        for (int i=0;i<row;i++){
+            for (int j=0;j<column;j++){
+                if (matrix[i][j] == 0){
+                    rowMarking[i] = 1;
+                    columnMarking[j] = 1;
+                }
+            }
+        }
+
+        for (int i=0;i<row;i++){
+            if(rowMarking[i] == 1){
+                for (int j=0;j<column;j++){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        for (int i=0;i<column;i++){
+            if (columnMarking[i] == 1){
+                for (int j=0;j<row;j++){
+                    matrix[j][i] = 0;
+                }
+            }
+        }
+    }
+    public void setZeroes(int[][] matrix) {
+        int row = matrix.length;
+        int column = matrix[0].length;
+        betterSolution(matrix, row, column);
+    }
+}
