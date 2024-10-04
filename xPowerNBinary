@@ -1,0 +1,25 @@
+package BitManipulation;
+
+// In this question we have to find the power of the number by using binary conversion.
+
+// Approach :- We will convert power in binary form.
+// Step 2 :- If there is a 1 then we will consider that number in result. Otherwise we will end up with squering that base number.
+
+public class findPowerOfX {
+    public static void main(String[] args) {
+        int baseNumber = 5;
+        int power = 3;
+        int resultant = 1;
+
+        while (power > 0){
+            if (power % 2 == 1){
+                resultant *= baseNumber;
+                baseNumber *= baseNumber;
+            }else {
+                baseNumber *= baseNumber;
+            }
+            power /= 2;
+        }
+        System.out.println(resultant);
+    }
+}
