@@ -1,0 +1,23 @@
+class Solution {
+    public boolean checkPerfectNumber(int num) {
+        int currentSum = 0;
+
+        // Corner case :-
+
+        if (num == 1){
+            return false;
+        }
+        
+        for (int i=2;i<Math.sqrt(num);i++){
+            if (num % i == 0){
+                currentSum += i;
+                currentSum += (num/i);
+            }
+        }
+        currentSum += 1;
+        if (currentSum == num){
+            return true;
+        }
+        return false;
+    }
+}
