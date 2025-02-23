@@ -1,0 +1,29 @@
+class Solution {
+    public static boolean isAlphaNumeric(char ch){
+        if ((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9')){
+            return true;
+        }
+        return false;
+    }
+    public boolean isPalindrome(String s) {
+        s = s.toLowerCase();
+        int startPoint = 0;
+        int endPoint = s.length()-1;
+        while (startPoint < endPoint){
+            if(!(isAlphaNumeric(s.charAt(startPoint)))){
+                startPoint++;
+                continue;
+            }
+            if (!(isAlphaNumeric(s.charAt(endPoint)))){
+                endPoint--;
+                continue;
+            }
+            if (s.charAt(startPoint) != s.charAt(endPoint)){
+                return false;
+            }
+            startPoint++;
+            endPoint--;
+        }
+        return true;
+    }
+}
